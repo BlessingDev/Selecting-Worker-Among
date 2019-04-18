@@ -98,15 +98,15 @@ class Application :
     def _save_file(self) :
         file = pathlib.Path('당번.json')
 
-        file.write_text(json.dumps(self.people_dic), encoding='utf-8')
+        file.write_text(json.dumps(self.people_dic))
 
     def _load_file(self) :
         file = pathlib.Path('당번.json')
 
         if file.exists() :
-            file_text = file.read_text(encoding='utf-8')
+            file_text = file.read_text()
 
-            self.people_dic = json.loads(file_text, encoding='utf-8')
+            self.people_dic = json.loads(file_text)
 
     def run(self) :
         n = 0
