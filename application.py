@@ -1,4 +1,4 @@
-import json, pathlib, random
+import json, pathlib, random, math
 
 class Application :
     def __init__(self) :
@@ -91,7 +91,8 @@ class Application :
             print("{0}. {1} - 당번률 {2}%".format(i + 1, name_prob[0], name_prob[1] * 100))
 
         worker = random.choice([name for name, prob in candidate_prob if prob == min_prob])
-        self.people_dic[worker][0] += 1
+        washed_dishes_rate = round(len(candidate_prob) / len(self.people_dic.keys()), 2)
+        self.people_dic[worker][0] += washed_dishes_rate
 
         print("{}이(가) 당번을 맡을 차례입니다".format(worker))
 
